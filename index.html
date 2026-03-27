@@ -72,7 +72,7 @@
         }
         .part{
             height:100%;
-            width:0px;
+            width:150px;
             background-color:green;
             
         }
@@ -117,6 +117,7 @@
             top:50vh;
             left:90vh;
             display: none;
+            z-index: 10;
         }
         .symbol{
             position:absolute;
@@ -160,6 +161,8 @@
         <div class="reload"><button onclick="location.reload();">&#x21bb; Replay</button></div>
         <audio id="lavde" src="lavdenabhojyam.mp3"></audio>
         <audio id="bgm" src="bgm.mp3"  loop></audio>
+        <img src="modiwindance.gif" alt="modi dance" style="position:absolute;top:5px;left:70vh;width:570px;height:722px;display:none;" id="dance">
+        <img src="modilose.webp" alt="modi lose" style="position:absolute;top:5px;left:70vh;width:570px;height:722px;display:none;" id="lose">
     <script>
         function showBackground() {
             document.getElementById("background").style.display = "block";
@@ -228,14 +231,16 @@
                 x.style.width = (currentWidth + 0.1) + "px"; // add 1 pixel
                 if (currentWidth >= 200) {
                 hideBackground();
-                setTimeout(() => alert("You win nigga!"), 10);
+                document.getElementById("dance").style.display="block";
+                
                 clearInterval(id);
                 clearInterval(gd);
                 clearInterval(kd);
                 clearInterval(ad);
                 document.getElementsByClassName("reload")[0].style.display="block";
                 document.getElementById("bgm").pause();
-                }
+                
+                               }
 
         
                 }    
@@ -281,6 +286,7 @@
                 
                 if (currentWidth >= 150) {
                 hideBackground();
+                document.getElementById("lose").style.display="block";
                 document.getElementById("lavde").play();
                 
                 clearInterval(gd);
