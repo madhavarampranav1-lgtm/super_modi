@@ -228,7 +228,7 @@
                 
                 let x = document.getElementsByClassName("part1")[0];
                 let currentWidth = parseFloat(window.getComputedStyle(x).width); // get numeric width
-                x.style.width = (currentWidth + 0.1) + "px"; // add 1 pixel
+                x.style.width = (currentWidth + 0.2) + "px"; // add 1 pixel
                 if (currentWidth >= 200) {
                 hideBackground();
                 document.getElementById("dance").style.display="block";
@@ -276,7 +276,7 @@
                 
                 let x = document.getElementsByClassName("part")[0];
                 let currentWidth = parseFloat(window.getComputedStyle(x).width); // get numeric width
-                x.style.width = (currentWidth + 5) + "px"; 
+                x.style.width = (currentWidth + 10) + "px"; 
                 modi.style.animation = "none";        // reset
                 modi.offsetHeight;                   // force reflow
                 document.getElementById("lavde").play();
