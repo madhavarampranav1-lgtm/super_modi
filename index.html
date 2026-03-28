@@ -78,7 +78,7 @@
         }
         .part1{
             height:100%;
-            width:0px;
+            width:200px;
             background-color:green;
             
         }
@@ -183,10 +183,10 @@
 
         function checol(bullet,vil){
             
-                if(parseFloat(window.getComputedStyle(bullet).getPropertyValue("left"))>parseFloat(window.getComputedStyle(vil).getPropertyValue("left"))-parseFloat(window.getComputedStyle(bullet).getPropertyValue("width"))&&
+                if(bullet.offsetLeft>parseFloat(window.getComputedStyle(vil).getPropertyValue("left"))-parseFloat(window.getComputedStyle(bullet).getPropertyValue("width"))&&
                 parseFloat(window.getComputedStyle(bullet).getPropertyValue("top"))<parseFloat(window.getComputedStyle(vil).getPropertyValue("top"))+parseFloat(window.getComputedStyle(vil).getPropertyValue("height"))&&
                 parseFloat(window.getComputedStyle(bullet).getPropertyValue("top"))>parseFloat(window.getComputedStyle(vil).getPropertyValue("top"))-parseFloat(window.getComputedStyle(bullet).getPropertyValue("height"))&&
-                parseFloat(window.getComputedStyle(bullet).getPropertyValue("left"))<parseFloat(window.getComputedStyle(vil).getPropertyValue("left"))+parseFloat(window.getComputedStyle(vil).getPropertyValue("width"))){
+                bullet.offsetLeft<parseFloat(window.getComputedStyle(vil).getPropertyValue("left"))+parseFloat(window.getComputedStyle(vil).getPropertyValue("width"))){
                 return 1;}
             
                 else{
@@ -220,7 +220,7 @@
             for(let j=0;j<bullet.length;j++){
 
 
-            bullet[j].style.left = parseFloat(window.getComputedStyle(bullet[j]).getPropertyValue("left")) + distance + "px";}
+            bullet[j].style.left = (bullet[j].offsetLeft + distance) + "px";}
             for(let j=bullet.length-1; j>=0; j--){
 
             if(checol(bullet[j],document.getElementsByClassName("epstein")[0])){
@@ -267,7 +267,7 @@
             i++;
             const missile=document.getElementsByClassName("missile");
             for(let j=0;j<missile.length;j++){
-                 missile[j].style.left= parseFloat(window.getComputedStyle(missile[j]).getPropertyValue("left"))- 80+ "px";}
+                 missile[j].style.left = (missile[j].offsetLeft - 80) + "px";}
             
             for(let j=missile.length-1; j>=0; j--){
 
